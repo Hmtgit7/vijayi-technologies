@@ -1,0 +1,39 @@
+<h2 class="text-center mb-8 mt-8">Product's List</h2>
+
+<div>
+  <table class="w-full border-collapse mb-4">
+    <thead>
+      <tr>
+        <th class="border p-2 bg-gray-100 font-bold">Product Name</th>
+        <th class="border p-2 bg-gray-100 font-bold">Quantity</th>
+        <th class="border p-2 bg-gray-100 font-bold">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products; let i = index">
+        <td class="border p-2">
+          <select [(ngModel)]="product.name" (change)="onProductChange(i)" class="w-4/5 p-1 box-border">
+            <option value="" disabled selected>Choose product</option>
+            <option *ngFor="let item of productList" [value]="item" [disabled]="isProductSelected(item)">
+              {{item}}
+            </option>
+          </select>
+        </td>
+        <td class="border p-2">
+          <select [(ngModel)]="product.quantity" (change)="onQuantityChange(i)" [ngClass]="{'border-red-600': quantityError[i]}" class="w-4/5 p-1 box-border">
+            <option value="" disabled selected>Choose quantity</option>
+            <option *ngFor="let qty of quantityList" [value]="qty">{{qty}}</option>
+          </select>
+        </td>
+        <td class="border p-2">
+          <button *ngIf="product.name && product.quantity != null" (click)="addProduct(i)" class="w-4/5 p-1 cursor-pointer hover:bg-green-600 hover:text-white">Add</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <small class="text-purple-600 text-xs">To see your selected click -</small>
+  <button id="btn" (click)="showOrder()" class="p-1 cursor-pointer hover:bg-green-600 hover:text-white">Show Order</button>
+</div>
