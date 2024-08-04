@@ -19,7 +19,7 @@ interface Product {
 
 export class ProductTableComponent {
 
-  productList: string[] = ['pencil', 'Eraser', 'Sharpner', 'Duster', 'Pen', 'Book', 'Paper', 'Box', 'Bag', 'compass'];
+  productList: string[] = ['Board','pencil', 'Eraser', 'Bottle','Duster', 'Pen','Tiffin' , 'Sharpner','Book', 'Paper', 'Box', 'Bag','Umbrella','compass','laptop', 'computer'];
   quantityList: number[] = [1, 2, 3, 4, 5];
   products: Product[] = [{ name: '', quantity: '' }];
   tempOrder: Product[] = [];
