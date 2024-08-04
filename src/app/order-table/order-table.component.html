@@ -1,0 +1,23 @@
+<div>
+    <h2 class="text-center my-8">Order's List</h2>
+    <table class="w-full border-collapse mb-10">
+      <thead>
+        <tr>
+          <th class="border p-2 bg-gray-100 font-bold">Product Name</th>
+          <th class="border p-2 bg-gray-100 font-bold">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of order">
+          <td class="border p-2 text-center">{{ product.name }}</td>
+          <td class="border p-2 text-center">{{ product.quantity }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div>
+    <small class="text-purple-600 text-xs">To hear your selected products, click - </small>
+    <button id="btn" class="p-2 mt-2 cursor-pointer bg-green-600 hover:bg-green-700 text-white" (click)="readOrder()">What is my Order?</button>
+  </div>
+  
